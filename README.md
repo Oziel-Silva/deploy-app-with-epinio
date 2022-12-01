@@ -132,7 +132,7 @@ Now let's deploy our application!!!!
 
 inside the app path use:
 ```
-epinio push --name not-api  --path ../notifications_api
+epinio push --name not-api  --path ../deploy-app-with-epinio
 ```
 
 ### That's It. Thank you for reading!!
