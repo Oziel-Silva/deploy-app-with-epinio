@@ -1,5 +1,5 @@
 # Notify API
-## This API runs integrated with a Postgress!!
+## This API runs integrated with a Postgres!!
 
 it have three methods:
 
@@ -13,7 +13,7 @@ _GET - Get all messages from one destination_
 ## Step One! 
 ### Prepare your Environment with Minikube!
 
-To install minikube use: [minikube oficial docs](https://minikube.sigs.k8s.io/docs/start/)
+To install minikube use: [minikube official docs](https://minikube.sigs.k8s.io/docs/start/)
 
 after install... Let's start k8s with the following commands:
 
@@ -65,7 +65,7 @@ $ helm repo add epinio https://epinio.github.io/helm-charts
 ```
 Here! We have that to provide one global domain. As our env is a developer environment, no problem in use one magic-domain for it!
 
-exemple: 
+example: 
 ```
 192-168-49-100.sslip.io
 ```
@@ -138,7 +138,7 @@ epinio push --name not-api  --path ../deploy-app-with-epinio
 [Docs to Understand buildpacks](https://buildpacks.io/docs/operator-guide/create-a-builder/)
 
 ### Troubleshooting
-At the moment that you try deploy one application using Epinio, happiness somethings that is hard to understand. So you need apply some debug technics! 
+At the moment that you try deploy one application using Epinio, it happens somethings that is hard to understand. So you need apply some debug technics! 
 
 when you apply the commands to push one app using epinio. 
 You can see the stage phase using:
@@ -151,11 +151,11 @@ So to watch deploy, use:
 ```
 $ kubectl get po -n workspace -w
 ```
-If the pod found is not runnig, for exemple the status is _CrashLoopBackOff_
+If the pod found is not running, for example the status is _CrashLoopBackOff_
 
 use ```kubectl describe``` again in order to see the problem. 
 
-If the pod is runnig but your application is not available, use:
+If the pod is running but your application is not available, use:
 ```
 $ kubectl logs pod-name -n workspace
 ``` 
@@ -177,18 +177,18 @@ In order to use one custom image in your project:
 
 The best form that I founded is using the _pack_ tool to do it. But this step is not so simple you need read more about that. 
 ```
-pack builder create oziel4ever/custon:001 --config builder.toml --publish
+pack builder create oziel4ever/custom:001 --config builder.toml --publish
 ```
-The flag _publis_ will make push the image for your registry(in this case I use docker), after that you need make the ```epinio push``` using this image that you have been created. 
+The flag _publish_ will make push the image for your registry(in this case I use docker), after that you need make the ```epinio push``` using this image that you have been created. 
 
-for exemple:
+for example:
 
 ```
-epinio push --name not-api-custon  --path ../notifications_api --builder-image oziel4ever/custon:001
+epinio push --name not-api-custom  --path ../notifications_api --builder-image oziel4ever/custom:001
 ```
 if you be using minikube, probably that the pod wont get the image, so you need use the command:
 ```
-minikube ssh docker pull oziel4ever/custon:001
+minikube ssh docker pull oziel4ever/custom:001
 ```
 
 
