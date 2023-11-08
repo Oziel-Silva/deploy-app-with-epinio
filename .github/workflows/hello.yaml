@@ -13,8 +13,8 @@ jobs:
     runs-on: ${{ inputs.arc_name }}
     container: busybox
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      # - name: Checkout code
+      #   uses: actions/checkout@v2
 
       - name: Print Hello Orbit
         run: |
