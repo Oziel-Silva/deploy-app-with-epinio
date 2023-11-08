@@ -1,16 +1,22 @@
-name: Hello World
+name: Hello orbit
 
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
+    inputs:
+      arc_name:
+        description: 'Targer ARC name used for `runs-on`in job'
+        default: oziel-predev-runner-01
+        required: false
 
 jobs:
-  hello_world_job:
-    runs-on: arc-runner-k8s
+  arc-runner-job:
+    runs-on: ${{ inputs.arc_name }}
+    container: busybox
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Print Hello World
-        run: echo "Hello, World!!"
+      - name: Print Hello Orbit
+        run: |
+          echo "Hello, Orbit!!"
+          sleep 360
