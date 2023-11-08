@@ -20,3 +20,6 @@ jobs:
         run: |
           echo "Hello, Orbit!!"
           sleep 360
+      - name: Epinio info
+        run: |
+          epinio info
