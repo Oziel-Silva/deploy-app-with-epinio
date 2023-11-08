@@ -18,7 +18,7 @@ jobs:
       - name: Print Hello Orbit
         run: |
           echo "Hello, Orbit!!"
-          sleep 360
+          sleep 120
       - name: Epinio info
         run: |
           epinio info
