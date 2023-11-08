@@ -11,7 +11,6 @@ on:
 jobs:
   arc-runner-job:
     runs-on: ${{ inputs.arc_name }}
-    container: busybox
     steps:
       # - name: Checkout code
       #   uses: actions/checkout@v2
