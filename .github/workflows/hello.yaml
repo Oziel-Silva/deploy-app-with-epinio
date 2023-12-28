@@ -5,7 +5,7 @@ on:
     inputs:
       arc_name:
         description: 'Targer ARC name used for `runs-on`in job'
-        default: oziel-predev-runner-01
+        default: k8s-runner
         required: false
 
 jobs:
