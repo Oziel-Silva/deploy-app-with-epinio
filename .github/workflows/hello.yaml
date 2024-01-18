@@ -12,13 +12,10 @@ jobs:
   arc-runner-job:
     runs-on: ${{ inputs.arc_name }}
     steps:
-      # - name: Checkout code
-      #   uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Print Hello Orbit
         run: |
           echo "Hello, Orbit!!"
-          sleep 120
-      - name: Epinio info
-        run: |
-          epinio info
+          helm list -A
